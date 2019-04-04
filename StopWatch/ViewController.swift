@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeBtnStatus(play: true, pause: false, stop: false);
     }
     
     func changeBtnStatus(play: Bool, pause: Bool, stop: Bool) {
@@ -54,13 +55,13 @@ class ViewController: UIViewController {
     @IBAction func play(_ sender: Any) {
         mTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { timer in self.calcTime() })
         
-        changeBtnStatus(false, true, true);
+        changeBtnStatus(play: false, pause: true, stop: true);
     }
     
     @IBAction func pause(_ sender: Any) {
         mTimer.invalidate()
         
-        changeBtnStatus(true, false, true);
+        changeBtnStatus(play: true, pause: false, stop: true);
     }
     
     @IBAction func stop(_ sender: Any) {
@@ -72,6 +73,6 @@ class ViewController: UIViewController {
         
         clock.text = "00:00:00.00"
         
-        changeBtnStatus(true, false, false);
+        changeBtnStatus(play: true, pause: false, stop: false);
     }
 }
