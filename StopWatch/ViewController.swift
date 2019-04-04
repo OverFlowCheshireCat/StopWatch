@@ -1,6 +1,6 @@
 // Codes By. Yotta
 
-import UIKit
+import UIKit;
 
 class ViewController: UIViewController {
     @IBOutlet weak var clock: UILabel!;
