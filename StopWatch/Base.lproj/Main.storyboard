@@ -64,6 +64,9 @@
                     </view>
                     <connections>
                         <outlet property="clock" destination="ceX-4k-wlN" id="5YJ-qC-loM"/>
+                        <outlet property="pauseBtn" destination="rzx-n9-A1K" id="Ggu-cn-2rj"/>
+                        <outlet property="playBtn" destination="Fxm-Cg-HTc" id="IaL-Ea-uEO"/>
+                        <outlet property="stopBtn" destination="XbO-Zo-O4v" id="TPD-ru-wKw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

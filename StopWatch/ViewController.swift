@@ -5,12 +5,22 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var clock: UILabel!
 
+    @IBOutlet weak var playBtn: UIBarButtonItem!
+    @IBOutlet weak var pauseBtn: UIBarButtonItem!
+    @IBOutlet weak var stopBtn: UIBarButtonItem!
+    
     var mTimer = Timer()
     
     var hour = 0, minute = 0, second = 0, cSecond = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func changeBtnStatus(play: Bool, pause: Bool, stop: Bool) {
+        playBtn.isEnabled = play;
+        pauseBtn.isEnabled = pause;
+        stopBtn.isEnabled = stop;
     }
     
     func calcTime() {
@@ -42,13 +52,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func play(_ sender: Any) {
-        if (!mTimer.isValid) {
-            mTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { timer in self.calcTime() })
-        }
+        mTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { timer in self.calcTime() })
+        
+        changeBtnStatus(false, true, true);
     }
     
     @IBAction func pause(_ sender: Any) {
         mTimer.invalidate()
+        
+        changeBtnStatus(true, false, true);
     }
     
     @IBAction func stop(_ sender: Any) {
@@ -59,5 +71,7 @@ class ViewController: UIViewController {
         second = 0;
         
         clock.text = "00:00:00.00"
+        
+        changeBtnStatus(true, false, false);
     }
 }
