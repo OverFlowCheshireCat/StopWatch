@@ -3,18 +3,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var clock: UILabel!
+    @IBOutlet weak var clock: UILabel!;
 
-    @IBOutlet weak var playBtn: UIBarButtonItem!
-    @IBOutlet weak var pauseBtn: UIBarButtonItem!
-    @IBOutlet weak var stopBtn: UIBarButtonItem!
+    @IBOutlet weak var playBtn: UIBarButtonItem!;
+    @IBOutlet weak var pauseBtn: UIBarButtonItem!;
+    @IBOutlet weak var stopBtn: UIBarButtonItem!;
     
-    var mTimer = Timer()
+    var mTimer = Timer();
     
-    var hour = 0, minute = 0, second = 0, cSecond = 0
+    var hour = 0, minute = 0, second = 0, cSecond = 0;
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         changeBtnStatus(play: true, pause: false, stop: false);
     }
     
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             }
         }
         
-        clock.text = (hour < 10 ? "0" + String(hour) : String(hour)) + ":" + (minute < 10 ? "0" + String(minute) : String(minute)) + ":" + (second < 10 ? "0" + String(second) : String(second)) + "." + (cSecond < 10 ? "0" + String(cSecond) : String(cSecond))
+        clock.text = (hour < 10 ? "0" + String(hour) : String(hour)) + ":" + (minute < 10 ? "0" + String(minute) : String(minute)) + ":" + (second < 10 ? "0" + String(second) : String(second)) + "." + (cSecond < 10 ? "0" + String(cSecond) : String(cSecond));
     }
     
     @IBAction func play(_ sender: Any) {
@@ -59,19 +59,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pause(_ sender: Any) {
-        mTimer.invalidate()
+        mTimer.invalidate();
         
         changeBtnStatus(play: true, pause: false, stop: true);
     }
     
     @IBAction func stop(_ sender: Any) {
-        mTimer.invalidate()
+        mTimer.invalidate();
         
         hour = 0;
         minute = 0;
         second = 0;
         
-        clock.text = "00:00:00.00"
+        clock.text = "00:00:00.00";
         
         changeBtnStatus(play: true, pause: false, stop: false);
     }
